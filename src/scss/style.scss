@@ -1,3 +1,55 @@
+*{
+  box-sizing: border-box;
+}
+
 body {
-  background: aqua;
+  background: #FFF0CF;
+}
+header{
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1{
+  font-size: 70px;
+  font-family: 'Baloo Bhaijaan', cursive;
+  color: #CB9D37;
+}
+main{
+
+  max-width: 80%;
+  border-left: 1px solid #C36E02;
+  border-right: 1px solid #C36E02;
+  margin: 0 auto;
+  background-color: white;
+  height: 650px;
+  padding: 10px;
+
+}
+.game{
+max-width: 602px;
+border: 1px solid #C36E02;
+overflow: hidden;
+}
+
+.sideBoard{
+
+}
+
+
+.pix {
+display: block;
+float:left;
+width: 10px;
+height:10px;
+background-color: #FFF7E0;
+}
+
+.head {
+  background-color:black;
+}
+
+.food{
+background-color: red;
 }
