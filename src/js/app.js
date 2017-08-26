@@ -1,7 +1,7 @@
 $(() => {
 
   const game = document.getElementById('game');
-  for (let i = 0; i < 3600; i++) {
+  for (let i = 0; i < 1600; i++) {
     game.innerHTML += '<div class="pix"></div>';
   }
 
@@ -10,41 +10,47 @@ $(() => {
   const keyDown = 40;
   const keyRight = 39;
   const keyLeft =  37;
+
   const $grid = $('.pix');
-  const $game = $('.game');
-  let heads = 3570;
-  // let tail = 401;
+
+  let heads = 1580;
   let up = null;
   let right = null;
   let down = null;
   let left = null;
-
+  let score = 0;
   const prevSnake = [];
+  let snake = 4;
 
 
+  function getFood() {
+    const rand = Math.ceil(Math.random() * 1600);
+    $grid.eq(rand).addClass('food');
+  }
+  for(let i = 0; i < 16 ; i++ ){
+    getFood();
+  }
   ///////////////////////////////////////////////////////////////////////////////////////////
   //                               ~ The SnakeStein Code ~                                   //
   ///////////////////////////////////////////////////////////////////////////////////////////
 
   //Remove the first index from the array witch should be the tail of the snake
   function  snakeInd(){
-    if(prevSnake.length === 10){
+    if(prevSnake.length === snake){
       prevSnake.shift(0);
     }
   }
+  //////////////////////////////////////////////////////////////////////////
   function move(){
-    //////////////////////////////////////////////////////////////////////////
     if(up === null && right === null && down === null && left === null){
-      heads = heads - 60;
+      heads = heads - 40;
       $grid.eq(heads).addClass('head');
       $grid.eq(prevSnake[0]).removeClass('head');
       snakeInd();
       prevSnake.push(heads);
 
-
-    //////////////////////////////////////////////////////////////////////////
     }else if(up === 1 && right === null && down === null && left === null){
-      heads = heads - 60;
+      heads = heads - 40;
       $grid.eq(heads).addClass('head');
       $grid.eq(prevSnake[0]).removeClass('head');
       snakeInd();
@@ -57,7 +63,7 @@ $(() => {
       prevSnake.push(heads);
     }else if(up === null && right === null && down === 3 && left === null){
       //////////////////////////////////////////////////////////////////////////
-      heads = heads + 60;
+      heads = heads + 40;
       $grid.eq(heads).addClass('head');
       $grid.eq(prevSnake[0]).removeClass('head');
       snakeInd();
@@ -69,6 +75,18 @@ $(() => {
       $grid.eq(prevSnake[0]).removeClass('head');
       snakeInd();
       prevSnake.push(heads);
+    }
+
+    ////////////////////////////////////////////////////////////////
+    if($grid.eq(heads).hasClass( 'food' )){
+      console.log('Works');
+      $grid.eq(heads).removeClass('food');
+      score++;
+      snake++;
+      $('span').html(score);
+    }else{
+      console.log('Nope');
+      console.log(heads);
     }
   }
   //////////////////////////////////////////////////////////////////
@@ -107,7 +125,10 @@ $(() => {
   function enter(){
     console.log('Enter');
     move();
-    return  setInterval(move, 100);
+    const intervalSet = setInterval(move, 300);
+    return intervalSet;
+
+
   }
   /////////////////////////////////////////////////////////////////
   function esc(){
