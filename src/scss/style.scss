@@ -28,9 +28,10 @@ main{
 
 }
 .game{
-max-width: 402px;
+max-width: 424px;
 border: 1px solid #C36E02;
 overflow: hidden;
+padding: 10px;
 }
 
 .sideBoard{
@@ -44,12 +45,18 @@ float:left;
 width: 10px;
 height:10px;
 background-color: #FFF7E0;
+
+
 }
 
 .head {
+
   background-color:black;
 }
 
 .food{
-background-color: red;
+color: black;
+font-size: 10px;
+overflow: visible;
+
 }

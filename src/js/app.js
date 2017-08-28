@@ -18,18 +18,34 @@ $(() => {
   let right = null;
   let down = null;
   let left = null;
-  let score = 0;
+  let score = 1;
   const prevSnake = [];
   let snake = 4;
+  const numbers1 = [1, 1, 1, 2, 2, 2, 4, 4, 8, 8, 8, 16, 16, 16, 32, 32, 32, 64, 64, 64, 128, 128, 128, 128, 256, 256, 256];
+  const numbers2 = [2, 4, 6, 8, 10, 12];
+  const numbers3 = [4, 6, 8, 10, 12, 14];
+  const numbers4 = [6, 8, 10, 12, 14, 16];
+  const numbers5 = [8, 10, 12, 14, 16, 18];
+  const numbers6 = [10, 12, 14, 16, 18, 20];
+  const combinations = [numbers1, numbers2, numbers3, numbers4, numbers5, numbers6];
+
+
 
 
   function getFood() {
+    // for(let i = 0; i < 6 ; i++ ){
     const rand = Math.ceil(Math.random() * 1600);
+    const numb = numbers1[Math.floor(Math.random()*numbers1.length)];
     $grid.eq(rand).addClass('food');
+    $grid.eq(rand).html(numb);
+    // }
   }
-  for(let i = 0; i < 16 ; i++ ){
+
+  for(let i = 0; i < numbers1.length ; i++ ){
     getFood();
   }
+
+
   ///////////////////////////////////////////////////////////////////////////////////////////
   //                               ~ The SnakeStein Code ~                                   //
   ///////////////////////////////////////////////////////////////////////////////////////////
@@ -78,15 +94,17 @@ $(() => {
     }
 
     ////////////////////////////////////////////////////////////////
-    if($grid.eq(heads).hasClass( 'food' )){
-      console.log('Works');
+    const classNumber = parseFloat($grid.eq(heads).html());
+
+    // removing class .food
+    if($grid.eq(heads).hasClass( 'food' ) && classNumber === score){
       $grid.eq(heads).removeClass('food');
-      score++;
-      snake++;
+      score = score + classNumber;
+      snake= snake + 2;
       $('span').html(score);
-    }else{
-      console.log('Nope');
-      console.log(heads);
+      $grid.eq(heads).html('');
+    }else if($grid.eq(heads).hasClass( 'food' ) && classNumber !== score){
+      console.log('you lost');
     }
   }
   //////////////////////////////////////////////////////////////////
@@ -125,14 +143,14 @@ $(() => {
   function enter(){
     console.log('Enter');
     move();
-    const intervalSet = setInterval(move, 300);
-    return intervalSet;
-
-
+    let interval = setInterval(move, 300);
+    return interval;
   }
+
   /////////////////////////////////////////////////////////////////
   function esc(){
     console.log('Escape');
+    return clearInterval(enter());
   }
 
   window.addEventListener('keydown', function (e) {
