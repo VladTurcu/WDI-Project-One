@@ -10,29 +10,32 @@ $(() => {
     $game.append('<div id="pix" class="pix"></div>');
   }
 
-  //getting all variables necesary to run the SNAKESTEIN
+  //global variables
   const $startBtn = $('#start');
   const $resetBtn = $('#reset');
   const $grid = $('.pix');
   const $intro = $('.intro');
   const $restartBtn = $('#restartBtn');
 
-
+  //Mobile movement control buttons
   const $upBtn = $('.up');
   const $rightBtn = $('.right');
   const $downBtn = $('.down');
   const $leftBtn = $('.left');
+
+  // Keyboard arrow codes
   const keyUp = 38;
   const keyDown = 40;
   const keyRight = 39;
   const keyLeft =  37;
 
-
+  //Arrays with numbers Level 1, Level 2
   const numbers1 = [1, 1, 1, 1, 2, 2, 2, 2, 4, 4, 4, 4, 8, 8, 8, 8, 16, 16, 16, 16, 32, 32, 32, 32, 64, 64, 64, 64, 128, 128,
     128, 128, 256, 256, 256, 256, 512, 512, 512, 512];
   const numbers2 = [1, 1, 1, 1, 2, 2, 2, 2, 4, 4, 4, 4, 16, 16, 16, 16, 256, 256, 256, 256];
+
+  //Game values
   let speed = null;
-  // let lose = false;
   let heads = 1480;
   let up = null;
   let right = null;
@@ -49,12 +52,7 @@ $(() => {
 
 
 
-
-
-
-
-
-  // functionality of The SnakeStein
+  // SnakeStein start function
   function startGame(){
     const radio =  $('input[name="dificult"]:checked').val();
     speed = radio;
@@ -88,6 +86,7 @@ $(() => {
 
   }
 
+  //Function called when hit borders and get wrong number
   function snakeDie(){
     life--;
     $('span').html('');
@@ -96,7 +95,6 @@ $(() => {
     stopSnake();
     if(life === 0){
       $('#restart').show('slow');
-      console.log('No Life ');
     }else{
       console.log('Life');
       $('#res').show('slow');
@@ -105,7 +103,7 @@ $(() => {
 
 
 
-
+  //Restart game  function
   function restartGame(){
     console.log('click');
     $intro.fadeOut('easing');
@@ -131,9 +129,7 @@ $(() => {
 
   // Getting random index numbers and displaying fiboncci sequence on page ////////////////
   function numbers(){
-    if(score === 10){
-      level = 2;
-    }
+    if(score === 50)level = 2;
     if(level===1){
       $grid.removeClass('food').html('');
       for(let i = 0; i < numbers1.length ; i++ ){
@@ -148,7 +144,6 @@ $(() => {
         const rand = Math.round(Math.random() * 2100);
         const numb = numbers2[i];
         $grid.eq(rand).addClass('food').html(numb);
-
       }
     }
   }
@@ -172,7 +167,7 @@ $(() => {
   //END OF FIBONACCI GAME LEVEL 1 ///////////////////////////////////////////////
 
 
-
+  // Multiply (Level 2) game win conditions
   function multiply(){
     classNumber = parseFloat($grid.eq(heads).html());
     if($grid.eq(heads).hasClass( 'food' ) && classNumber === resultM){
@@ -186,16 +181,9 @@ $(() => {
     }
   }
 
-
-
-
-
-
   //Remove the first index from the array witch should be the tail of the snake
   function snakeInd(){
-    if(prevSnake.length === snake){
-      prevSnake.shift(0);
-    }
+    if(prevSnake.length === snake)prevSnake.shift(0);
   }
 
   //Adding and removing class to make The Snakestein move
@@ -225,22 +213,12 @@ $(() => {
       addRemoveClass();
     }
 
-
-
-console.log(resultM);
-
-
     //  Killing the SnakeStein when overlay with self
     for (let i = 0; i < prevSnake.length - 2; i++) {
       if (prevSnake[i + 1] === prevSnake[prevSnake.length - 1] ||
         prevSnake[prevSnake.length - 1] < 0 ||
-        prevSnake[prevSnake.length - 1] > 1500 ) {
-        snakeDie();
-      }
+        prevSnake[prevSnake.length - 1] > 1500 )snakeDie();
     }
-
-
-
 
     //SnakeStein die if touch border right
     const boardR = [];
@@ -261,17 +239,12 @@ console.log(resultM);
       if(prevSnake[prevSnake.length - 1] === item && left === 4)snakeDie();
     });
 
-
-
-
     if(level === 1) fibonacci();
     if(level === 2) multiply();
     $('.life').html(life);
     $('.score').html(score);
     $('.level').html(level);
-
   }
-
 
   //////////////////////////////////////////////////////////////////
   function moveUp(){
