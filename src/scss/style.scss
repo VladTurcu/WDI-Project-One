@@ -149,14 +149,14 @@ aside {
     float: left;
   }
 
-  // aside {
-  //
-  //   width: 775px;
-  //   height: 80px;
-  //   background-color: rgba(0, 0, 0, 0.5);
-  //   padding: 10px;
-  //   border-radius: 0 0 15px 15px;
-  // }
+  aside {
+
+    width: 775px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 0 0 15px 15px;
+  }
 
   main{
     max-width: 90%;
@@ -171,12 +171,12 @@ img{
 
 .buttons {
   width: 100%;
-  float: left;
+
 }
 
 .buttons .up {
   color: red;
-  width: 90%;
+  width: 40px;
   float: left;
   transform: rotate(-90deg);
 
@@ -186,7 +186,7 @@ img{
 
 .buttons .left {
   color: red;
-  width: 45%;
+  width: 40px;
   float: left;
   transform: rotate(-160deg);
 
@@ -194,14 +194,14 @@ img{
 
 .buttons .right {
   color: red;
-  width: 45%;
+  width: 40px;
   float: left;
   transform: rotate(0deg);
 
 }
 .buttons .down {
   color: red;
-  width: 90%;
+  width: 40px;
   float: left;
   transform: rotate(90deg);
 
