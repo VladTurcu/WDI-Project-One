@@ -30,7 +30,7 @@ $(() => {
 
   const numbers1 = [1, 1, 1, 1, 2, 2, 2, 2, 4, 4, 4, 4, 8, 8, 8, 8, 16, 16, 16, 16, 32, 32, 32, 32, 64, 64, 64, 64, 128, 128,
     128, 128, 256, 256, 256, 256, 512, 512, 512, 512];
-  const numbers2 = [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 8, 8, 8, 8];
+  const numbers2 = [1, 1, 1, 1, 2, 2, 2, 2, 4, 4, 4, 4, 16, 16, 16, 16, 256, 256, 256, 256];
   let speed = null;
   // let lose = false;
   let heads = 1480;
@@ -40,9 +40,10 @@ $(() => {
   let left = null;
   let score = 0;
   let result = 1;
+  let resultM = 2;
   let prevSnake = [];
   let snake = 4;
-  let setSpeed = 5000;
+  const setSpeed = 5000;
   let level = 1;
   let life = 3;
 
@@ -119,6 +120,7 @@ $(() => {
     left = null;
     score = 0;
     result = 1;
+    resultM = 1;
     prevSnake = [];
     snake = 4;
     level = 1;
@@ -129,7 +131,7 @@ $(() => {
 
   // Getting random index numbers and displaying fiboncci sequence on page ////////////////
   function numbers(){
-    if(score === 50){
+    if(score === 10){
       level = 2;
     }
     if(level===1){
@@ -171,21 +173,17 @@ $(() => {
 
 
 
-
-
-
   function multiply(){
     classNumber = parseFloat($grid.eq(heads).html());
-    if($grid.eq(heads).hasClass( 'food' ) && classNumber === result){
+    if($grid.eq(heads).hasClass( 'food' ) && classNumber === resultM){
       $grid.eq(heads).removeClass('food');
       score += 5;
-      result = result * classNumber;
+      resultM = resultM * classNumber;
       snake= snake + 2;
       $grid.eq(heads).html('');
-    }else if($grid.eq(heads).hasClass( 'food' ) && classNumber !== result){
+    }else if($grid.eq(heads).hasClass( 'food' ) &&  resultM !== classNumber ){
       snakeDie();
     }
-
   }
 
 
@@ -229,7 +227,7 @@ $(() => {
 
 
 
-
+console.log(resultM);
 
 
     //  Killing the SnakeStein when overlay with self
@@ -270,17 +268,9 @@ $(() => {
     if(level === 2) multiply();
     $('.life').html(life);
     $('.score').html(score);
+    $('.level').html(level);
 
   }
-
-
-
-
-
-
-
-
-
 
 
   //////////////////////////////////////////////////////////////////
