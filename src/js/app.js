@@ -64,6 +64,8 @@ $(() => {
 
 
 
+
+
   // SnakeStein start function
   function startGame(){
     const radio =  $('input[name="dificult"]:checked').val();
@@ -167,10 +169,10 @@ $(() => {
   //Addition GAME LEVEL 1 ///////////////////////////////////////////////
 
   //Game win conditions
+
   function addition(){
     // Removing class .food if conditions are met ///////////////////
     classNumber = parseFloat($grid.eq(heads).html());
-
     if($grid.eq(heads).hasClass( 'food' ) && classNumber === result){
       $grid.eq(heads).removeClass('food');
       score += 5;
@@ -178,7 +180,6 @@ $(() => {
       result = result + classNumber;
       $grid.eq(heads).html('');
       $correct.play();
-
     }else if($grid.eq(heads).hasClass( 'food' ) && classNumber !== result){
       snakeDie();
     }
