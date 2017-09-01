@@ -21,12 +21,13 @@
     <main>
       <div id="intro" class="intro">
         <div class="introduction">
-          <p>The Snakestein! <br> Find The Fibonacci sequence in the pattern</p>
+          <p><h2>The Snakestein!</h2>
+          Give Your Brain A Workout!</p>
         </div>
-        <div class="dificulty">
+        <div class="introduction">
         <form>
         <h3>Choose level of dificulty</h3>
-  <div id="radio">
+  <div id="radio" >
     <input type="radio" id="dificulty1"
      name="dificult" value="500">
     <label for="dificult">Beginner</label>
@@ -42,9 +43,11 @@
     <label for="dificult">Advanced</label>
   </div>
   </form>
-
+  <button id="how" class="btn">How to Play</button>
+  <button id="start" class="btn">Start</button>
       </div>
-      <button id="start" class="btn">Start</button>
+
+
       </div>
 
 
@@ -58,12 +61,29 @@
 <div id="restart" class="intro">
   <div  class="introduction">
   <p>You have no more lifes <br> Would you like to restart</p>
-  <button id="restartBtn" class="btn">Restart</button>
+  <button id="restartBtn" class="btn">Yes! I would love that</button>
 </div>
 </div>
 
 
+<div id="info" class="intro">
 
+  <div id="int"  class="introduction">
+  <p><strong><h3>How to play</h3></strong><br>
+    <strong>The SnakeStein</strong> is a Math[:)] based game with a different operation to perform on each level.
+
+
+  <center><strong><h3>Level 1</h3></strong>Addition<br></center>
+  The next number you have to get is the sum of the last 2 numbers<br>
+  Example:
+c = a + b<br>
+<center><strong><h3>Level 2</h3></strong>Multiplying</center>
+You will discover the next number by multiplying the last two<br>
+Example:
+c = a * b<br>
+<button id="infoBox" class="btn">Close info</button>
+</div>
+</div>
 
       <div id="game" class="game">
       </div>
@@ -88,6 +108,9 @@
 
 
     </main>
-
+<audio src="audio/bkg.mp3" autoplay loop></audio>
+<audio id="click" src="audio/click.wav"></audio>
+<audio id="correct" src="audio/correct.wav"></audio>
+<audio id="fail" src="audio/fail.wav"></audio>
   </body>
 </html>

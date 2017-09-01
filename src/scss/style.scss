@@ -31,7 +31,7 @@ main{
 
 .intro {
 position: absolute;
-padding: 40px;
+padding: 30px;
 width: 80%;
 height: 580px;
 // background-color: rgba(0, 0, 0, 0.9);
@@ -53,6 +53,10 @@ margin: 10px;
 background-image: url(https://www.firestock.ru/wp-content/uploads/2015/01/shutterstock_92427589.jpg);
 background-size: cover;
 
+}
+#info{
+  overflow: scroll;
+  display: none;
 }
 
 .pix {
@@ -101,9 +105,9 @@ form {
 .btn{
   display: flex;
   justify-content: center;
-  margin: 10px auto;
+  margin: 5px auto;
   width: 40%;
-  height: 50px;
+  height: 40px;
   background-color: #ee8b61;
   border-radius: 15px;
   font-size: 22px;
@@ -249,8 +253,8 @@ aside {
     border-radius: 10px 10px 0 0;
     padding: 10px;
     text-align: center;
-    margin: 10px auto;
-    width:70%;
+    margin: 0 auto;
+    width:90%;
     font-size: 20px;
   }
 
@@ -303,12 +307,15 @@ h1 {
   .intro {
   position: absolute;
   padding: 10px;
-  width: 90%;
+  width: 95%;
   height: 95%;
   border-radius: 15px;
   font-size: 24px;
   }
 }
+
+
+
 
 @media only screen and (max-width: 500px) {
   main{
@@ -316,7 +323,7 @@ h1 {
   }
   .game{
   width: 372px;
-  margin: 0 auto;
+  margin: 10px auto;
   }
 
   .sideBoard{
@@ -346,7 +353,7 @@ h1 {
   .intro {
   position: absolute;
   padding: 10px;
-  width: 95%;
+  width: 97%;
   height: 95%;
   border-radius: 15px;
   font-size: 24px;

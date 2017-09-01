@@ -11,11 +11,22 @@ $(() => {
   }
 
   //global variables
+  const $click = $('#click')[0];
+  const $correct = $('#correct')[0];
+  const $fail = $('#fail')[0];
+
+  $click.volume = 0.5;
+  $correct.volume = 0.3;
+  $fail.volume = 0.7;
+
   const $startBtn = $('#start');
   const $resetBtn = $('#reset');
   const $grid = $('.pix');
   const $intro = $('.intro');
   const $restartBtn = $('#restartBtn');
+  const $info = $('#info');
+  const $infoBtn = $('#infoBox');
+  const $howtoBtn = $('#how');
 
   //Mobile movement control buttons
   const $upBtn = $('.up');
@@ -30,11 +41,11 @@ $(() => {
   const keyLeft =  37;
 
   //Arrays with numbers Level 1, Level 2
-  const numbers1 = [1, 1, 1, 1, 2, 2, 2, 2, 4, 4, 4, 4, 8, 8, 8, 8, 16, 16, 16, 16, 32, 32, 32, 32, 64, 64, 64, 64, 128, 128,
+  const numbers1 = [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 8, 8, 8, 8, 12, 12, 12, 12, 16, 16, 16, 16, 32, 32, 32, 32, 64, 64, 64, 64, 128, 128,
     128, 128, 256, 256, 256, 256, 512, 512, 512, 512];
   const numbers2 = [1, 1, 1, 1, 2, 2, 2, 2, 4, 4, 4, 4, 16, 16, 16, 16, 256, 256, 256, 256];
-
   //Game values
+
   let speed = null;
   let heads = 1480;
   let up = null;
@@ -49,6 +60,7 @@ $(() => {
   const setSpeed = 5000;
   let level = 1;
   let life = 3;
+  let infoBox = false;
 
 
 
@@ -65,6 +77,7 @@ $(() => {
     result = 1;
     prevSnake = [];
     startSnake();
+    $click.play();
 
   }
 
@@ -83,6 +96,7 @@ $(() => {
     snake = 4;
     // result = 1;
     startSnake();
+    $click.play();
 
   }
 
@@ -93,6 +107,7 @@ $(() => {
     $grid.removeClass('food').html('');
     $grid.removeClass('head').html('');
     stopSnake();
+    $fail.play();
     if(life === 0){
       $('#restart').show('slow');
     }else{
@@ -117,12 +132,13 @@ $(() => {
     down = null;
     left = null;
     score = 0;
-    result = 1;
+    result = null;
     resultM = 1;
     prevSnake = [];
     snake = 4;
     level = 1;
     life = 3;
+    $click.play();
   }
 
 
@@ -148,23 +164,26 @@ $(() => {
     }
   }
 
-  //FIBONACCI GAME LEVEL 1 ///////////////////////////////////////////////
+  //Addition GAME LEVEL 1 ///////////////////////////////////////////////
 
   //Game win conditions
-  function fibonacci(){
+  function addition(){
     // Removing class .food if conditions are met ///////////////////
     classNumber = parseFloat($grid.eq(heads).html());
+
     if($grid.eq(heads).hasClass( 'food' ) && classNumber === result){
       $grid.eq(heads).removeClass('food');
       score += 5;
-      result = result + classNumber;
       snake= snake + 2;
+      result = result + classNumber;
       $grid.eq(heads).html('');
+      $correct.play();
+
     }else if($grid.eq(heads).hasClass( 'food' ) && classNumber !== result){
       snakeDie();
     }
   }
-  //END OF FIBONACCI GAME LEVEL 1 ///////////////////////////////////////////////
+  //END OF Addition GAME LEVEL 1 ///////////////////////////////////////////////
 
 
   // Multiply (Level 2) game win conditions
@@ -239,7 +258,7 @@ $(() => {
       if(prevSnake[prevSnake.length - 1] === item && left === 4)snakeDie();
     });
 
-    if(level === 1) fibonacci();
+    if(level === 1) addition();
     if(level === 2) multiply();
     $('.life').html(life);
     $('.score').html(score);
@@ -316,7 +335,21 @@ $(() => {
         break;
     }
   }, true);
+  function info(){
+    if(infoBox === false){
+      $info.show();
+      $click.play();
+      infoBox = true;
 
+    }else{
+      $info.hide();
+      $click.play();
+      infoBox = false;
+    }
+
+  }
+  $howtoBtn.on('click', info);
+  $infoBtn.on('click', info);
   $startBtn.on('click', startGame);
   $resetBtn.on('click', resetGame);
   $restartBtn.on('click', restartGame);
