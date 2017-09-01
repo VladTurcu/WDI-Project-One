@@ -11,19 +11,46 @@
 > **Note**: You'll need to have `gulp-cli` installed globally `npm i -g gulp-cli`
 
 <h3> HOW THE GAME WORKS </H3>
+<strong>The SnakeStein</strong> is a Math[:)] based game with a different operation to perform on each level.
 
-The aim of the game is to collect more balls than your opponent before the time runs out.
+<h3> Intro </H3>
+You will have to chose between 3 difficulty levels, each of them making the game more difficult to pass trough Levels .
+You can eighter start the game or read the "How to play" button!
 
-<img src="https://image.ibb.co/b6VB2a/Screen_Shot_2017_05_26_at_09_23_08.png" alt="Screen Shot 2017 05 26 at 09 23 08" border="0" />
 
-<img src="https://image.ibb.co/m9CDFv/Screen_Shot_2017_05_26_at_09_23_24.png">
+<img src="src/images/1.png" />
+
+
+<h3> Gameplay </H3>
+When starting the game you will be given 5 seconds of empty board after which a series of numbers will randomly appear on the board from which you will have to get a specific one.
+
+
+<img src="src/images/2.png" />
+
+
+The numbers on the board will change possiton every 5 seconds making it more difficult for the player to get the correct number in time.
+
+<img src="src/images/3.png">
 
 
 
 <h3> CHALLANGES </H3>
+The main challenge I encountered during the creation of this game was making the snake move inside the grid without using an animation library.
+I decided to use a class manipulation system witch it turned out to be very efficient and simple to use.
 
-The main challenge I encountered during the creation f this game was making sure the cubes could connect the dots. Each dot has a different set of outcomes for a connection and it also had to effect the correct player's score. I overcame this by initially writing out all the outcomes in the code and commenting on each section, I later refactored my code to make it shorter.
 
 <h3> IMPROVEMENTS </h3>
 
-I would like to make the game more responsive, mainly the start screen. I was also like to add more sliders so players have the choice of changing a number of balls. I would like to work on the connection of the cubes and dots a bit more and something is wont pick up the connecting fast enough. I would like to make the game quicker as at the moment it is a little laggy at times. I would also like to add more levels with maybe a maze-like style and moving balls. 
+At the moment the game has only 2 levels(addition and multiplying) so i would like to add at leas 3 more (subtraction, division and The Fibonacci sequence as the last level).
+adding more features like a pause button and more animations to it.
+
+
+
+### Software languages used-
+
+* HTML 5
+* SCSS
+* Javascript ES6
+* Jquery
+* Gulp
+* Git & Git Hub
