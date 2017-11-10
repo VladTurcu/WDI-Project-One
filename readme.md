@@ -1,11 +1,11 @@
 
-<h1> COLLECT SOME STUFF </H1>
+<h1>The Snakestein </H1>
 
 
 <h3> HOW TO INSTALL THE GAME</h3>
 
 - Download or clone the repo
-- `npm i` to install dependencies
+- `yarn install` to install dependencies
 - `gulp` to compile the source code and open in browser
 
 > **Note**: You'll need to have `gulp-cli` installed globally `npm i -g gulp-cli`

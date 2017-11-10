@@ -122,7 +122,6 @@ form {
   display: none;
 }
 
-
 aside {
   font-family: 'Handlee', italic;
   width: 25%;
@@ -158,7 +157,6 @@ aside {
   display: flex;
   flex-direction: column;
 }
-
 
 .one {
   width: 100%;
@@ -218,7 +216,6 @@ aside {
 }
 
 @media only screen and (max-width: 1200px){
-
   .sideBoard{
     margin: 10px;
     width: 25%;
@@ -242,7 +239,6 @@ aside {
   }
 }
 
-
 @media only screen and (max-width: 920px) {
   .game{
     margin: 10px;
@@ -258,15 +254,14 @@ aside {
     font-size: 20px;
   }
 
-
-  #radio {
+  .radio {
     width: 100%;
     height: 20px;
     display: flex;
     margin: 10px;
     font-size: 24px;
   }
-  #radio input{
+  .radio input{
     display: flex;
     align-items: center;
   }
@@ -303,7 +298,6 @@ h1 {
     font-size: 18px;
   }
 
-
   .intro {
   position: absolute;
   padding: 10px;
@@ -313,9 +307,6 @@ h1 {
   font-size: 24px;
   }
 }
-
-
-
 
 @media only screen and (max-width: 500px) {
   main{
@@ -340,7 +331,6 @@ h1 {
     padding: 5px;
     width: 100%;
     font-size: 12px;
-
   }
 
 

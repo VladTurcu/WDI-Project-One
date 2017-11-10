@@ -1,118 +1,98 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>The SnakeStein</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-
-    <header>
-      <h1>The SnakeStein</h1>
-    </header>
-
-    <main>
-      <div id="intro" class="intro">
-        <div class="introduction">
-          <p><h2>The Snakestein!</h2>
+<head>
+  <meta charset="utf-8">
+  <title>The SnakeStein</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <header>
+    <h1>The SnakeStein</h1>
+  </header>
+  <main>
+    <div id="intro" class="intro">
+      <div class="introduction">
+        <p><h2>The Snakestein!</h2>
           Give Your Brain A Workout!</p>
         </div>
         <div class="introduction">
-        <form>
-        <h3>Choose level of dificulty</h3>
-  <div id="radio" >
-    <input type="radio" id="dificulty1"
-     name="dificult" value="500">
-    <label for="dificult">Beginner</label>
-  </div>
-  <div id="radio">
-    <input type="radio" id="dificulty2"
-     name="dificult" value="300">
-    <label for="dificult">Medium</label>
-  </div>
-  <div id="radio">
-    <input type="radio" id="dificulty3"
-     name="dificult" value="100">
-    <label for="dificult">Advanced</label>
-  </div>
-  </form>
-  <button id="how" class="btn">How to Play</button>
-  <button id="start" class="btn">Start</button>
+          <form>
+            <h3>Choose level of dificulty</h3>
+            <div class="radio" >
+              <input type="radio" id="dificulty1" name="dificult" value="500">
+              <label for="dificult">Beginner</label>
+            </div>
+            <div class="radio">
+              <input type="radio" id="dificulty2" name="dificult" value="300">
+              <label for="dificult">Medium</label>
+            </div>
+            <div class="radio">
+              <input type="radio" id="dificulty3" name="dificult" value="100">
+              <label for="dificult">Advanced</label>
+            </div>
+          </form>
+          <button id="how" class="btn">How to Play</button>
+          <button id="start" class="btn">Start</button>
+        </div>
       </div>
-
-
+      <div id="res" class="intro">
+        <div  class="introduction">
+          <p>Ops!<br> You lost one life </p>
+          <button id="reset" class="btn">Continue Playing</button>
+        </div>
       </div>
-
-
-<div id="res" class="intro">
-  <div  class="introduction">
-    <p>Ops!<br> You lost one life </p>
-    <button id="reset" class="btn">Continue Playing</button>
-  </div>
-</div>
-
-<div id="restart" class="intro">
-  <div  class="introduction">
-  <p>You have no more lifes <br> Would you like to restart</p>
-  <button id="restartBtn" class="btn">Yes! I would love that</button>
-</div>
-</div>
-
-
-<div id="info" class="intro">
-
-  <div id="int"  class="introduction">
-  <p><strong><h3>How to play</h3></strong><br>
-    <strong>The SnakeStein</strong> is a Math[:)] based game with a different operation to perform on each level.
-
-
-  <center><strong><h3>Level 1</h3></strong>Addition<br></center>
-  The next number you have to get is the sum of all previous numbers<br>
-  Example:
-c = a + b<br>
-<center><strong><h3>Level 2</h3></strong>Multiplying</center>
-You will discover the next number by multiplying the last two<br>
-Example:
-c = a * b<br>
-<button id="infoBox" class="btn">Close info</button>
-</div>
-</div>
-
+      <div id="restart" class="intro">
+        <div  class="introduction">
+          <p>You have no more lifes <br> Would you like to restart</p>
+          <button id="restartBtn" class="btn">Yes! I would love that</button>
+        </div>
+      </div>
+      <div id="info" class="intro">
+        <div id="int"  class="introduction">
+          <p><strong><h3>How to play</h3></strong><br></p>
+          <strong>The SnakeStein</strong> is a Math[:)] based game with a different operation to perform on each level.
+          <center><strong><h3>Level 1</h3></strong>Addition<br></center>
+          The next number you have to get is the sum of all previous numbers<br>
+          Example:
+          c = a + b<br>
+          <center><strong><h3>Level 2</h3></strong>Multiplying</center>
+          You will discover the next number by multiplying the last two<br>
+          Example:
+          c = a * b<br>
+          <button id="infoBox" class="btn">Close info</button>
+        </div>
+      </div>
       <div id="game" class="game">
       </div>
-            <aside>
-             <div class="sideBoard">Life:<span class="life" ></span></div>
-             <div class="sideBoard">Score:<span class="score"></span></div>
-             <div class="sideBoard">Level:<span class="level"></span></div>
-
-
-            </aside>
-
+      <aside>
+        <div class="sideBoard">Life:<span class="life" ></span></div>
+        <div class="sideBoard">Score:<span class="score"></span></div>
+        <div class="sideBoard">Level:<span class="level"></span></div>
+      </aside>
       <div id="buttons" class="buttons">
         <div class="one">
-      <div class="up"></div>
-      </div>
-      <div class="two">
-        <div class="left"></div>
-        <div class="right"></div>
+          <div class="dir up"></div>
+        </div>
+        <div class="two">
+          <div class="dir left"></div>
+          <div class="dir right"></div>
         </div>
         <div class="three">
-        <div class="down"></div>
+          <div class="dir down"></div>
         </div>
       </div>
-
-
     </main>
-<audio src="http://soundimage.org/wp-content/uploads/2016/07/Fantasy_Game_Background_Looping.mp3" autoplay loop></audio>
-<audio id="click" src="/public/audio/click.wav"></audio>
-<audio id="correct" src="/public/audio/correct.wav"></audio>
-<audio id="fail" src="/public/audio/fail.mp3"></audio>
+    <audio src="http://soundimage.org/wp-content/uploads/2016/07/Fantasy_Game_Background_Looping.mp3" autoplay loop></audio>
+    <audio id="click" src="/public/audio/click.wav"></audio>
+    <audio id="correct" src="/public/audio/correct.wav"></audio>
+    <audio id="fail" src="/public/audio/fail.mp3"></audio>
   </body>
-</html>
+  </html>
+  

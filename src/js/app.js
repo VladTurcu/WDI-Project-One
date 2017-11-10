@@ -34,18 +34,13 @@ $(() => {
   const $downBtn = $('.down');
   const $leftBtn = $('.left');
 
-  // Keyboard arrow codes
-  const keyUp = 38;
-  const keyDown = 40;
-  const keyRight = 39;
-  const keyLeft =  37;
 
   //Arrays with numbers Level 1, Level 2
   const numbers1 = [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 8, 8, 8, 8, 12, 12, 12, 12, 16, 16, 16, 16, 32, 32, 32, 32, 64, 64, 64, 64, 128, 128,
     128, 128, 256, 256, 256, 256, 512, 512, 512, 512];
   const numbers2 = [1, 1, 1, 1, 2, 2, 2, 2, 4, 4, 4, 4, 16, 16, 16, 16, 256, 256, 256, 256];
-  //Game values
 
+  //Game values
   let speed = null;
   let heads = 1480;
   let up = null;
@@ -57,14 +52,9 @@ $(() => {
   let resultM = 2;
   let prevSnake = [];
   let snake = 4;
-  const setSpeed = 5000;
   let level = 1;
   let life = 3;
   let infoBox = false;
-
-
-
-
 
   // SnakeStein start function
   function startGame(){
@@ -80,10 +70,7 @@ $(() => {
     prevSnake = [];
     startSnake();
     $click.play();
-
   }
-
-
 
   // Reset game function
   function resetGame(){
@@ -96,7 +83,6 @@ $(() => {
     down = null;
     left = null;
     snake = 4;
-    // result = 1;
     startSnake();
     $click.play();
 
@@ -113,7 +99,6 @@ $(() => {
     if(life === 0){
       $('#restart').show('slow');
     }else{
-      console.log('Life');
       $('#res').show('slow');
     }
   }
@@ -122,7 +107,6 @@ $(() => {
 
   //Restart game  function
   function restartGame(){
-    console.log('click');
     $intro.fadeOut('easing');
     $('#intro').show('easing');
     intervalSet = null;
@@ -142,8 +126,6 @@ $(() => {
     life = 3;
     $click.play();
   }
-
-
 
   // Getting random index numbers and displaying fiboncci sequence on page ////////////////
   function numbers(){
@@ -169,7 +151,6 @@ $(() => {
   //Addition GAME LEVEL 1 ///////////////////////////////////////////////
 
   //Game win conditions
-
   function addition(){
     // Removing class .food if conditions are met ///////////////////
     classNumber = parseFloat($grid.eq(heads).html());
@@ -180,6 +161,7 @@ $(() => {
       result = result + classNumber;
       $grid.eq(heads).html('');
       $correct.play();
+      numbers();
     }else if($grid.eq(heads).hasClass( 'food' ) && classNumber !== result){
       snakeDie();
     }
@@ -305,7 +287,7 @@ $(() => {
   ///////////////////////////////////////////////////////////////
   function startSnake(){
     intervalSet = setInterval(moveSnake, speed);
-    intervalNumbers = setInterval(numbers, setSpeed);
+    numbers();
   }
 
   /////////////////////////////////////////////////////////////////
@@ -328,9 +310,9 @@ $(() => {
       case 'ArrowRight':
         moveRight();
         break;
-      // case 'Enter':
-      //   startSnake();
-      //   break;
+      case 'Enter':
+        startSnake();
+        break;
       case 'Escape':
         stopSnake();
         break;
